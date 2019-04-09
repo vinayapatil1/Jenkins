@@ -1,0 +1,19 @@
+node
+{
+    stage('Checkout')
+    {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '06160c1d-08b1-436f-b991-b6055430de11', url: 'https://github.com/vinayapatil1/Jenkins.git']]])
+    }
+    stage ('Analysis')
+    {
+        echo "Static Analysis"
+    }
+    stage('Test')
+    {
+        echo "Test version"
+    }
+    stage('Deploy')
+    {
+        echo "Deploy to prod"
+    }
+}
